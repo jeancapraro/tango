@@ -1,9 +1,9 @@
 import os
 
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
+MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
 SECRET_KEY = '-!+j8wnbn216c9e(vu91q4+%qjq*hq9n2z%(+==n0z_c%vaq7x'
 
@@ -45,10 +45,13 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
 ]
+
+STATICFILES_DIRS = [STATIC_DIR, ]
 
 WSGI_APPLICATION = 'twd_2017.wsgi.application'
 
@@ -101,3 +104,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = MEDIA_DIR
+MEDIA_URL = '/media/'
